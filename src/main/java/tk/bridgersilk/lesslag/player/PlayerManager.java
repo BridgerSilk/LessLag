@@ -87,7 +87,30 @@ public class PlayerManager {
 			protocolManager.removePacketListener(packetListener);
 		}
 
-		packetListener = new PacketAdapter(plugin, ListenerPriority.NORMAL, PacketType.values()) {
+		packetListener = new PacketAdapter(plugin, ListenerPriority.NORMAL,
+            PacketType.Play.Client.POSITION,
+            PacketType.Play.Client.POSITION_LOOK,
+            PacketType.Play.Client.LOOK,
+            PacketType.Play.Client.KEEP_ALIVE,
+            PacketType.Play.Client.ENTITY_ACTION,
+            PacketType.Play.Client.CHAT,
+            PacketType.Play.Client.USE_ENTITY,
+            PacketType.Play.Client.BLOCK_DIG,
+            PacketType.Play.Client.ARM_ANIMATION,
+            PacketType.Play.Client.HELD_ITEM_SLOT,
+            PacketType.Play.Client.WINDOW_CLICK,
+            PacketType.Play.Client.CLIENT_COMMAND,
+            PacketType.Play.Client.TAB_COMPLETE,
+            PacketType.Play.Client.VEHICLE_MOVE,
+            PacketType.Play.Client.CLOSE_WINDOW,
+            PacketType.Play.Client.ABILITIES,
+            PacketType.Play.Client.ADVANCEMENTS,
+            PacketType.Play.Client.BEACON,
+            PacketType.Play.Client.BOAT_MOVE,
+            PacketType.Play.Client.CUSTOM_PAYLOAD,
+            PacketType.Play.Client.GROUND,
+            PacketType.Play.Client.PICK_ITEM
+        ) {
 			@Override
 			public void onPacketReceiving(PacketEvent event) {
 				if (!packetSpamEnabled) return;
@@ -95,6 +118,9 @@ public class PlayerManager {
 				Player player = event.getPlayer();
 				packetCounts.put(player, packetCounts.getOrDefault(player, 0) + 1);
 			}
+
+            @Override
+            public void onPacketSending(PacketEvent event) {}
 		};
 
 		protocolManager.addPacketListener(packetListener);

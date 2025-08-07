@@ -1,4 +1,4 @@
-<h1 align="center">⚡ LessLag</h1>
+<h1 align="center"><img src="img/lesslag_logo_small.png" width="30px" alt="logo banner" style="margin-bottom: -5px; border-radius: 10px;"> LessLag</h1>
 <p align="center">
   LessLag is a <b>performance optimization</b> plugin for Minecraft servers that <b>reduces lag automatically</b> by controlling worlds, entities, redstone, mob AI, and much more. Designed to keep TPS high without sacrificing gameplay.
 </p>
@@ -53,11 +53,60 @@ From unloading inactive worlds to merging dropped items, disabling redstone duri
 
 ---
 
-## 🖼 Showcase
+## ✨ Showcase
 
 <div align="center">
-  <img src="" width="45%" alt="todo: plugin screenshots">
+  <img src="img/feature_item_stacking.png" width="90%" alt="item stacking">
 </div>
+<p align="center"><b>Improved item stacking, also works with un-stackable items, no item amount limit</p>
+
+<br>
+<div align="center">
+  <img src="img/feature_customizable.png" width="90%" alt="item stacking">
+</div>
+<p align="center">Everything is customizable, even the item stack holograms</p>
+
+<br>
+<div align="center">
+  <img src="img/feature_performance_profiler.png" width="90%" alt="item stacking">
+</div>
+<p align="center">Performance Profiler</p>
+
+<br>
+<div align="center">
+  <img src="img/feature_world_list_command.png" width="90%" alt="item stacking">
+</div>
+<p align="center">World list command <code>/ll worlds</code></p>
+
+<br>
+<div align="center">
+  <img src="img/feature_anti_spam.png" width="90%" alt="item stacking">
+</div>
+<p align="center">Anti chat spam</p>
+
+<br>
+<div align="center">
+  <img src="img/feature_disable_blocks.png" width="90%" alt="item stacking">
+</div>
+<p align="center">Disable Fluids, Redstone and more when TPS are low</p>
+
+<br>
+<div align="center">
+  <img src="img/feature_item_clear.png" width="90%" alt="item stacking">
+</div>
+<p align="center">Auto-clear dropped items</p>
+
+<br>
+<div align="center">
+  <img src="img/feature_smart_entity_removal.png" width="90%" alt="item stacking">
+</div>
+<p align="center">Smart entity removal</p>
+
+<br>
+<div align="center">
+  <img src="img/feature_world_unload.png" width="90%" alt="item stacking">
+</div>
+<p align="center">Auto-unload inactive worlds</p></b>
 
 ---
 
@@ -102,9 +151,7 @@ We welcome contributions!
 
 If you enjoy LessLag and want to support its development:
 
-* [💖 Ko-fi](https://ko-fi.com/bridgersilk)
-* [💎 Patreon](https://patreon.com/bridgersilk)
-* [📜 PayPal](https://paypal.me/bridgersilk)
+* Buy me a coffee with [Ko-fi](https://ko-fi.com/bridgersilk)
 
 ---
 Have a nice day <3
