@@ -113,7 +113,7 @@ From unloading inactive worlds to merging dropped items, disabling redstone duri
 ## 🔗 Downloads
 
 * [SpigotMC](todo: link)
-* [Hangar](todo: link)
+* [Hangar](https://hangar.papermc.io/BridgerSilk/LessLag)
 * [Modrinth](todo: link)
 * [CurseForge](todo: link)
 * [Bukkit](todo: link)
