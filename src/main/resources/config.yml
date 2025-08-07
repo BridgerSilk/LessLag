@@ -1,0 +1,168 @@
+# ==========================================================
+#  LessLag Configuration File
+#  This plugin helps reduce server and client lag by using
+#  various performance optimizations. Each section below
+#  can be enabled or disabled and customized.
+# ==========================================================
+
+# Permissions:
+# - lesslag.admin (main permission for using the lesslag command and features)
+
+settings:
+  # Prefix for all chat messages sent by the plugin
+  prefix: "§7[§cLessLag§7] §r"
+  # How often (in ticks) the plugin checks server TPS.
+  # 20 ticks = 1 second
+  tps_check_interval: 20
+  
+  # When TPS drops below this number, certain lag-prevention
+  # features will start activating.
+  low_tps_threshold: 15.0
+  
+  # Critical TPS value; if the server goes this low,
+  # emergency optimizations (like unloading worlds) may trigger.
+  critical_tps_threshold: 10.0
+
+world_management:
+  auto_unload:
+    enabled: true
+    # Wether to save worlds before unloading them
+    save_world: true
+    # Minutes of no players in a world before it gets unloaded
+    inactivity_minutes: 5
+    # Worlds that should never be auto-unloaded
+    excluded_worlds:
+      - world
+      - lobby
+
+  force_unload_on_low_tps:
+    enabled: true
+    # When TPS is critically low, worlds with few/no players will
+    # unload automatically, and remaining players will be moved here:
+    player_transfer_world: world
+
+item_management:
+  auto_clear_drops:
+    enabled: true
+    # How often (in seconds) all dropped items are cleared
+    interval_seconds: 240
+    # Items that will never be removed automatically
+    whitelist:
+      - diamond
+      - nether_star
+
+  item_stacking:
+    enabled: true
+    # Items dropped close to each other (within this radius) merge
+    stack_radius: 3.0
+    # Hologram text shown above stacked items.
+    # Placeholders:
+    #   {item}   = Name of the item (e.g., "Diamond")
+    #   {amount} = Total amount in this stack
+    hologram_format: "§e{item}§f x{amount}"
+    # "partial" = pick up only what fits in inventory
+    # "full" = pick up entire stack or nothing
+    pickup_behavior: "partial"
+
+entity_management:
+  # Max number of entities allowed per chunk
+  max_entities_per_chunk: 50
+  # Max number of entities allowed in an entire world
+  max_entities_per_world: 5000
+  # If the max is reached, natural mob spawning stops
+  disable_natural_spawn_on_limit: true
+  # Kill new entities that appear above the limit
+  kill_excess_entities: true
+
+  smart_entity_removal:
+    # Uses advanced logic to kill the most frequent entity type if overpopulated
+    enabled: true
+    # Entities that never get killed even if overpopulated
+    whitelist:
+    - villager
+    - wolf
+    - item
+
+player_management:
+  # Prevents more players from joining or entering a world if it's full
+  max_players_per_world: 50
+  # The world, players get teleported in, when the max player limit in a world is exceeded (the world player limit is ignored in the fallback world)
+  fallback_world: world
+
+  packet_spam_protection:
+    enabled: true
+    # Number of packets a player can send per second before being punished
+    packet_limit: 1000
+    # What to do if a player exceeds the limit: "kick" or "ban"
+    action: "kick"
+    # Reason for the kick/ban that gets displayed to the player when getting kicked/banned
+    action_reason: "§cYou're sending way too many packets! Trying to crash the server!?"
+
+  chat_spam_protection:
+    enabled: true
+    # If more than this amount of messages are sent in total, the chat gets temporarily muted for everyone (except players with permission lesslag.admin)
+    max_messages_per_second: 6
+    # If chat is spammed heavily, it will be disabled for everyone temporarily
+    mute_duration_seconds: 5
+
+performance_controls:
+  disable_redstone:
+    enabled: true
+    # If true, only redstone clocks are disabled
+    # (fast-repeating circuits that cause lag)
+    clocks_only: true
+    # TPS threshold below which redstone is automatically disabled
+    disable_below_tps: 12.0 # set this value to >20 to always disable it (same thing for all other disable_below_tps options)
+
+  disable_falling_blocks:
+    enabled: true
+    # Prevents blocks like sand or gravel from turning into falling blocks
+    disable_below_tps: 12.0
+
+  disable_fluids:
+    enabled: true
+    # Stops water and lava from flowing or being updated
+    disable_below_tps: 12.0
+
+  disable_explosions:
+    enabled: true
+    # Prevents TNT, creeper, or other explosions during heavy lag
+    disable_below_tps: 10.0
+
+  disable_ender_pearls:
+    enabled: true
+    # Stops players from using ender pearls when TPS is low
+    disable_below_tps: 10.0
+
+  disable_command_blocks:
+    enabled: true
+    # Command blocks won't run if TPS is below this threshold
+    disable_below_tps: 10.0
+
+mob_ai:
+  disable_ai_when_no_players_nearby:
+    enabled: true
+    # Distance around mobs (in blocks) to check for nearby players
+    # If no players are within this radius, mobs will freeze and stop pathfinding
+    radius: 32
+
+chunk_loading:
+  throttle_on_fast_player_movement:
+    enabled: false
+    # If a player moves very fast and loads too many chunks
+    # while TPS is dropping, chunk loading will be disabled
+    # for this amount of seconds to let the server recover
+    disable_duration_seconds: 5
+    # Total maximum amount of chunks that can be loaded per second on the server (not per player)
+    max_chunks_per_second: 500
+
+profiler:
+  enabled: true
+  # How often the profiler updates (in ticks)
+  update_interval_ticks: 20
+  # Show CPU usage in profiler
+  show_cpu_usage: true
+  # Show RAM usage in profiler
+  show_ram_usage: true
+  # Show number of packets sent and received in profiler
+  show_packets: true

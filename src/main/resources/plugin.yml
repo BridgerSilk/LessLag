@@ -1,0 +1,13 @@
+name: lesslag
+main: tk.bridgersilk.lesslag.LessLag
+version: 0.0.1
+author: BridgerSilk
+depend: [ProtocolLib]
+api-version: 1.15
+description: Effectively boost overall server performance without changing too much vanilla gameplay behavior.
+commands:
+  lesslag:
+    description: Main LessLag command
+    usage: /<command> <reload|info|profiler|worlds>
+    permission: lesslag.admin
+    aliases: [ll]
