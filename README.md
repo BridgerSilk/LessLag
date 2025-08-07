@@ -133,6 +133,7 @@ From unloading inactive worlds to merging dropped items, disabling redstone duri
 * Minecraft 1.16+
 * Java 17 or higher
 * Paper / Spigot server *(or forks of those)*
+* [Protocol Lib](https://ci.dmulloy2.net/job/ProtocolLib/lastStableBuild/)
 
 ---
 
