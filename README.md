@@ -112,11 +112,11 @@ From unloading inactive worlds to merging dropped items, disabling redstone duri
 
 ## 🔗 Downloads
 
-* [SpigotMC](todo: link)
+* [SpigotMC](https://www.spigotmc.org/resources/lesslag.127762/)
 * [Hangar](https://hangar.papermc.io/BridgerSilk/LessLag)
-* [Modrinth](todo: link)
-* [CurseForge](todo: link)
-* [Bukkit](todo: link)
+* [Modrinth](https://modrinth.com/plugin/lesslag)
+* [CurseForge](soon)
+* [Bukkit](soon)
 
 ---
 
