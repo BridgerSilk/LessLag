@@ -21,9 +21,10 @@ public class PlayerTeleportListener implements Listener {
         World targetWorld = event.getTo().getWorld();
         String prefix = Bukkit.getPluginManager().getPlugin("LessLag").getConfig().getString("settings.prefix");
 
-        if (targetWorld != null &&
+        if (!event.getFrom().getWorld().equals(targetWorld) &&
                 !targetWorld.getName().equalsIgnoreCase(manager.getFallbackWorldName()) &&
-                targetWorld.getPlayers().size() >= manager.getMaxPlayersPerWorld()) {
+                targetWorld.getPlayers().size() >= manager.getMaxPlayersPerWorld() &&
+                !player.hasPermission("lesslag.admin")) {
             event.setCancelled(true);
             player.sendMessage(prefix + "§cYou can't teleport to this world because it's full.");
         }
