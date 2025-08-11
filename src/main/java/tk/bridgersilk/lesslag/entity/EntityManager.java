@@ -43,7 +43,7 @@ public class EntityManager {
 		this.killExcessEntities = config.getBoolean("entity_management.kill_excess_entities", true);
 
 		this.smartRemovalEnabled = config.getBoolean("entity_management.smart_entity_removal.enabled", true);
-		this.smartRemovalWhitelist = config.getStringList("entity_management.smart_entity_removal.whitelist");
+		this.smartRemovalWhitelist = config.getStringList("entity_management.smart_entity_removal.whitelist").stream().map(String::toUpperCase).toList();
 	}
 
 	private void startTasks() {
@@ -118,7 +118,9 @@ public class EntityManager {
             int removed = 0;
 			for (World world : Bukkit.getWorlds()) {
 				for (Entity entity : world.getEntitiesByClass(Entity.class)) {
-					if (entity.getType().name().equals(mostFrequent) && !(entity instanceof Player)) {
+					if (entity.getType().name().equals(mostFrequent) &&
+                    !(entity instanceof Player) &&
+                    !smartRemovalWhitelist.contains(entity.getType().name().toUpperCase())) {
 						entity.remove();
                         removed++;
 					}

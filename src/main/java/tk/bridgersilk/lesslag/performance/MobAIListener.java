@@ -39,6 +39,9 @@ public class MobAIListener implements Listener {
 							.anyMatch(e -> e instanceof Player);
 
 					mob.setAI(hasNearby);
+                    if (!config.getBoolean("mob_ai.disable_ai_when_no_players_nearby.invulnerable")) {
+                        mob.setInvulnerable(!hasNearby);
+                    }
 				}
 			}
 		}.runTaskTimer(plugin, 100L, 100L);

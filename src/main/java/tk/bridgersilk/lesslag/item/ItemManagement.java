@@ -235,11 +235,19 @@ public class ItemManagement implements Listener {
         return Objects.equals(metaA, metaB);
     }
 
+    private String itemName;
+
 	private void updateHologram(Item item) {
 		int amount = stackedAmounts.getOrDefault(item.getUniqueId(), item.getItemStack().getAmount());
+        if (item.getItemStack().getItemMeta().hasDisplayName()) {
+            this.itemName = item.getItemStack().getItemMeta().getDisplayName();
+        } else {
+            this.itemName = formatItemName(item.getItemStack().getType());
+        }
 		String displayName = hologramFormat
-				.replace("{item}", formatItemName(item.getItemStack().getType()))
-				.replace("{amount}", String.valueOf(amount));
+				.replace("{item_type}", formatItemName(item.getItemStack().getType()))
+				.replace("{amount}", String.valueOf(amount))
+				.replace("{item_name}", this.itemName);
 		item.setCustomName(displayName);
 		item.setCustomNameVisible(true);
 	}

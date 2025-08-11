@@ -57,9 +57,10 @@ item_management:
     stack_radius: 3.0
     # Hologram text shown above stacked items.
     # Placeholders:
-    #   {item}   = Name of the item (e.g., "Diamond")
+    #   {item_type}   = Type of the item (e.g., "Diamond")
+    #   {item_name}   = Name of the item (e.g., "OP Sword") (this is the same as {item_type} but shows the custom name of an item if it got renamed)
     #   {amount} = Total amount in this stack
-    hologram_format: "§e{item}§f x{amount}"
+    hologram_format: "§e{item_name}§f x{amount}"
     # "partial" = pick up only what fits in inventory
     # "full" = pick up entire stack or nothing
     pickup_behavior: "partial"
@@ -141,10 +142,12 @@ performance_controls:
 
 mob_ai:
   disable_ai_when_no_players_nearby:
-    enabled: true
+    enabled: false
     # Distance around mobs (in blocks) to check for nearby players
     # If no players are within this radius, mobs will freeze and stop pathfinding
     radius: 32
+    # Whether mobs shouldn't take damage while their AI is disabled (recommended, otherwise players could abuse this feature and go far away from mobs and kill them with a ranged weapon)
+    invulnerable: true
 
 chunk_loading:
   throttle_on_fast_player_movement:
