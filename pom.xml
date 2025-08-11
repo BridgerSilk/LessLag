@@ -7,7 +7,7 @@
 
 	<groupId>tk.bridgersilk</groupId>
 	<artifactId>lesslag</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
