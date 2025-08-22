@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>tk.bridgersilk</groupId>
   <artifactId>lesslag</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
   <build>
     <resources>
       <resource>
@@ -53,7 +53,12 @@
               <goal>shade</goal>
             </goals>
             <configuration>
-              <relocations />
+              <relocations>
+                <relocation>
+                  <pattern>org.bstats</pattern>
+                  <shadedPattern>tk.bridgersilk.lesslag.bstats</shadedPattern>
+                </relocation>
+              </relocations>
               <transformers>
                 <transformer>
                   <mainClass>tk.bridgersilk.lesslag.LessLag</mainClass>

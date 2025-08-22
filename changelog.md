@@ -1,3 +1,6 @@
+## v0.0.3
+- added bStats
+
 ## v0.0.2
 - fixed: teleportation in the same world getting cancelled when worlds are full (feature: world player limit)
 - fixed: smart removal entity whitelist not working (due to case mismatch when reading it)

@@ -1,5 +1,6 @@
 package tk.bridgersilk.lesslag;
 
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -49,6 +50,8 @@ public class LessLag extends JavaPlugin {
 
         this.worldManager = new WorldManager(this);
 
+        int pluginId = 27003;
+        Metrics metrics = new Metrics(this, pluginId);
         
         new MainCommand(this);
 

@@ -122,9 +122,9 @@ From unloading inactive worlds to merging dropped items, disabling redstone duri
 
 ## 📌 Latest Update
 
-**Version:** `v0.0.1`
+**Version:** `v0.0.3`
 
-* ✅ First public build
+* ✅ added bStats
 
 ---
 
