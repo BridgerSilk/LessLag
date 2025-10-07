@@ -122,9 +122,9 @@ From unloading inactive worlds to merging dropped items, disabling redstone duri
 
 ## 📌 Latest Update
 
-**Version:** `v0.0.3`
+**Version:** `v0.0.4`
 
-* ✅ added bStats
+* ✅ added tick speed performance control (decrease tick speed in all worlds if tps are low)
 
 ---
 
