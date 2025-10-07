@@ -1,3 +1,6 @@
+## v0.0.4
+- added tick speed performance control (decrease tick speed in all worlds if tps are low)
+
 ## v0.0.3
 - added bStats
 

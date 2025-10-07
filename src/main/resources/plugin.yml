@@ -1,6 +1,6 @@
 name: lesslag
 main: tk.bridgersilk.lesslag.LessLag
-version: 0.0.3
+version: 0.0.4
 author: BridgerSilk
 depend: [ProtocolLib]
 api-version: 1.15

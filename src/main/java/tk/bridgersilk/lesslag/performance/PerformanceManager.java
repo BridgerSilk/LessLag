@@ -30,6 +30,10 @@ public class PerformanceManager {
     private boolean mobAiDisableWhenNoPlayers;
     private int mobAiRadius;
 
+    private boolean decreaseTickSpeed;
+    private double tickSpeedThreshold;
+    private int decreaseTickSpeedTo;
+
     private RedstoneListener redstoneListener;
     private FallingBlockListener fallingBlockListener;
     private FluidListener fluidListener;
@@ -37,6 +41,7 @@ public class PerformanceManager {
     private EnderPearlListener enderPearlListener;
     private CommandBlockListener commandBlockListener;
     private MobAIListener mobAIListener;
+    private TickSpeedListener tickSpeedListener;
 
     private BukkitTask aiCheckTask;
 
@@ -69,6 +74,10 @@ public class PerformanceManager {
 
         mobAiDisableWhenNoPlayers = config.getBoolean("mob_ai.disable_ai_when_no_players_nearby.enabled");
         mobAiRadius = config.getInt("mob_ai.disable_ai_when_no_players_nearby.radius");
+
+        decreaseTickSpeed = config.getBoolean("performance_controls.decrease_tickspeed.enabled");
+        decreaseTickSpeedTo = config.getInt("performance_controls.decrease_tickspeed.decrease_to");
+        tickSpeedThreshold = config.getDouble("performance_controls.decrease_tickspeed.decrease_below_tps");
     }
 
     private void registerListeners() {
@@ -79,6 +88,7 @@ public class PerformanceManager {
         if (enderPearlsEnabled) enderPearlListener = new EnderPearlListener(plugin, enderPearlsTpsThreshold);
         if (commandBlocksEnabled) commandBlockListener = new CommandBlockListener(plugin, commandBlocksTpsThreshold);
         if (mobAiDisableWhenNoPlayers) mobAIListener = new MobAIListener(plugin, mobAiRadius);
+        if (decreaseTickSpeed) tickSpeedListener = new TickSpeedListener(plugin, decreaseTickSpeedTo, tickSpeedThreshold);
     }
 
     public void disable() {
